@@ -1,0 +1,14 @@
+{
+    "name": "bigmemti/virtual-pet-mvc",
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "model/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bigmemti"
+        }
+    ],
+    "require": {}
+}
