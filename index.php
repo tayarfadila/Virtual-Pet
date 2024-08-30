@@ -1,23 +1,25 @@
 <?php
-// Load pet data from JSON file
-$petData = json_decode(file_get_contents('pet_data.json'), true);
+
+
+use Model\Pet;
+
+require __DIR__.'/vendor/autoload.php';
+
+$pet = new Pet();
 
 // Handle feeding
 if (isset($_GET['action']) && $_GET['action'] === 'feed') {
-    $petData['hunger'] = max($petData['hunger'] - 1, 0);
-    file_put_contents('pet_data.json', json_encode($petData));
+    $pet->feed();
     header('Location: index.php');
     exit();
 }
 
 // Handle playing
 if (isset($_GET['action']) && $_GET['action'] === 'play') {
-    $petData['happiness'] = min($petData['happiness'] + 1, 10);
-    file_put_contents('pet_data.json', json_encode($petData));
+    $pet->play();
     header('Location: index.php');
     exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,8 +36,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'play') {
             <img src="https://via.placeholder.com/150/FFC0CB/000000?text=Pet" alt="Pet Image">
         </div>
         <div class="status">
-            <p><strong>Hunger Level:</strong> <?php echo $petData['hunger']; ?></p>
-            <p><strong>Happiness Level:</strong> <?php echo $petData['happiness']; ?></p>
+            <p><strong>Hunger Level:</strong> <?php echo $pet->data['hunger']; ?></p>
+            <p><strong>Happiness Level:</strong> <?php echo $pet->data['happiness']; ?></p>
         </div>
         <div class="actions">
             <a href="?action=feed" class="button">Feed</a>
