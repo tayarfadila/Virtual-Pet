@@ -47,3 +47,12 @@ h1 {
 .button:hover {
     background-color: #ff1493;
 }
+
+form { 
+    display : inline;
+}
+
+button{
+    border : 0;
+    cursor : pointer;
+}
