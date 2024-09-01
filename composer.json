@@ -2,8 +2,9 @@
     "name": "bigmemti/virtual-pet-mvc",
     "autoload": {
         "psr-4": {
-            "Model\\" : "model/"
-        }
+            "App\\" : "./"
+        },
+        "files": ["Core/Helper.php"]
     },
     "authors": [
         {

@@ -1,26 +1,3 @@
-<?php
-
-
-use Model\Pet;
-
-require __DIR__.'/vendor/autoload.php';
-
-$pet = new Pet();
-
-// Handle feeding
-if (isset($_GET['action']) && $_GET['action'] === 'feed') {
-    $pet->feed();
-    header('Location: index.php');
-    exit();
-}
-
-// Handle playing
-if (isset($_GET['action']) && $_GET['action'] === 'play') {
-    $pet->play();
-    header('Location: index.php');
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,8 +17,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'play') {
             <p><strong>Happiness Level:</strong> <?php echo $pet->data['happiness']; ?></p>
         </div>
         <div class="actions">
-            <a href="?action=feed" class="button">Feed</a>
-            <a href="?action=play" class="button">Play</a>
+            <form action="/feed" method="post">
+                <button class="button">Feed</button>
+            </form>
+            <form action="/play" method="post">
+                <button class="button">Play</button>
+            </form>
         </div>
     </div>
     <script src="script.js"></script>
