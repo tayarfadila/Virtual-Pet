@@ -32,4 +32,8 @@ class PetController
         header('Location: /');
         exit();
     }
+
+    public function info() {
+        return json_encode($this->pet->data);
+    }
 }

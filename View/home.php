@@ -13,8 +13,18 @@
             <img src="https://via.placeholder.com/150/FFC0CB/000000?text=Pet" alt="Pet Image">
         </div>
         <div class="status">
-            <p><strong>Hunger Level:</strong> <?php echo $pet->data['hunger']; ?></p>
-            <p><strong>Happiness Level:</strong> <?php echo $pet->data['happiness']; ?></p>
+            <p>
+                <strong>Hunger Level:</strong>
+                <span id="hunger">
+                    <?php echo $pet->data['hunger']; ?>
+                </span>
+            </p>
+            <p>
+                <strong>Happiness Level:</strong> 
+                <span id="happiness">
+                    <?php echo $pet->data['happiness']; ?>
+                </span>
+            </p>
         </div>
         <div class="actions">
             <form action="/feed" method="post">
